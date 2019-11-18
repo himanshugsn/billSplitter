@@ -41,7 +41,7 @@ void newExpense(){
     
 
     cout << "\nEnter the Expense Amount\n";
-    int amount;
+    float amount;
     cin >> amount;
 
      //entering names in hashmap
