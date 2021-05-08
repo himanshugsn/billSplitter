@@ -33,11 +33,7 @@ void newExpense(){
         peopleNames.push_back(tempName);
     }
    
-   /* cout << "\nprinting vector\n";
-       for(int i = 0; i < numPeople; i++){
-        cout << peopleNames[i] << endl;
-    }
-    */
+
     
 
     cout << "\nEnter the Expense Amount\n";
@@ -47,10 +43,11 @@ void newExpense(){
      //entering names in hashmap
     //person p[numPeople];
    for(int i = 0 ; i < numPeople;i++){
-        //p[i].name = peopleNames[i];
+
+       
         // check whether person is present or not;
 
-        //myMap[peopleNames[i]] = p[i];
+  
         unordered_map<string,person> :: iterator it = myMap.find(peopleNames[i]);
         if(it != myMap.end()){
             continue;
@@ -80,31 +77,21 @@ void newExpense(){
 
 
     float mean = amount/numPeople;
-    //cout << mean;
+
 
     // entering expenses
     for(int i = 0; i < numPeople; i++){
         unordered_map<string,person> :: iterator it = myMap.find(peopleNames[i]);
-        //cout << " name : " <<  it->second.name << endl;
+     
         float temp;
         temp = it->second.totalExpense;
-        
-        //cout  << "temp" << temp <<endl;
+   
         
         it->second.totalExpense = mean + temp;
         
-        //cout <<"new temp" << temp << endl;
-    }
-/*
-   cout << " printing data \n";
-   unordered_map<string,person> :: iterator itr = myMap.begin();
-    while (itr != myMap.end())
-    {
-        cout << itr->second.name << " " << itr->second.totalExpense <<" " <<  itr->second.totalSpent << endl;
-        itr++;
+ 
     }
 
-*/
    
 }
 
@@ -123,18 +110,7 @@ void settlePayments(unordered_map<string,person> myMap){
             getters.push_back(i->second);
         }
     }
-  /* //  printing of getters and givers
-    list <person> :: iterator it; 
-    cout << "getters list";
-    for(it = getters.begin(); it != getters.end(); ++it) 
-        cout << '\t' << (*it).name << " " << (*it).balanceAmt; 
-    cout << '\n'; 
 
-    cout << "givers list"; 
-    for(it = givers.begin(); it != givers.end(); ++it) 
-        cout << '\t' << (*it).name << " " << (*it).balanceAmt; 
-    cout << '\n';
-*/
     
 
      list <person> :: iterator it; 
@@ -148,18 +124,7 @@ void settlePayments(unordered_map<string,person> myMap){
     getters.sort(boolSort);
     givers.sort(boolSort);
 
- /*      //  printing of getters and givers
-    //list <person> :: iterator it; 
-    cout << "getters list";
-    for(it = getters.begin(); it != getters.end(); ++it) 
-        cout << '\t' << (*it).name << " " << (*it).balanceAmt; 
-    cout << '\n'; 
 
-    cout << "givers list"; 
-    for(it = givers.begin(); it != givers.end(); ++it) 
-        cout << '\t' << (*it).name << " " << (*it).balanceAmt; 
-    cout << '\n';
-*/
 
     
     list<person> :: iterator givIt;
@@ -190,24 +155,7 @@ void settlePayments(unordered_map<string,person> myMap){
 
         }
     }
-    
-    
-
   
-    
-    
-    
-   
-
-
-   /* unordered_map<string,person> :: iterator itr = myMap.begin();
-    while (itr != myMap.end())
-    {
-        cout << itr->second.name << " " << itr->second.balanceAmt << endl;
-        itr++;
-    }
-    */
-    
 
 }
 
@@ -242,17 +190,3 @@ int main(){
 }
 
 
-
-/*
-
-
-
-  unordered_map<string,person> :: iterator it = myMap.begin();
-    while (it != myMap.end())
-    {
-        cout << it->second.name << " " << it->second.totalExpense <<" " it->second.totalSpent << endl;
-        it++;
-    }
-    
-
-    */
